@@ -4,8 +4,7 @@ from app.repositories.sesion_repo import crear_sesion as guardar_sesion, atualiz
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
 
-
-    
+  
 def crear_sesion(sesion: SesionCreate,usuario_id: int, db:Session):
     datos_sesion = sesion.model_dump()
     datos_sesion["usuario_id"] = usuario_id
