@@ -13,6 +13,11 @@ class Settings(BaseSettings):
     # Base de datos
     database_url: str
 
+    #JWT
+    secret_key: str
+    algorithm: str
+    access_token_expire_minutes: int
+
     class Config:
         # Le dice a pydantic dónde encontrar el archivo .env
         env_file = ".env"
