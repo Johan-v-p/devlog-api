@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.routers.metas_semanales import router as metas_semanales_router
 from app.routers.sesion_tecnologias import router as sesion_tecnologias_router
 from app.routers.sesiones import router as sesiones_router
@@ -7,6 +8,16 @@ from app.routers.usuarios import router as usuarios_router
 from app.routers.auth import router as auth_router
 
 app = FastAPI()
+
+# Permitir peticiones desde cualquier origen (para portafolio)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 app.include_router(metas_semanales_router)
 app.include_router(sesion_tecnologias_router)
