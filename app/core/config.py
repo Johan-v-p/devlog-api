@@ -18,6 +18,11 @@ class Settings(BaseSettings):
     algorithm: str
     access_token_expire_minutes: int
 
+    # Docker PostgreSQL
+    postgres_user: str = ""
+    postgres_password: str = ""
+    postgres_db: str = ""
+
     class Config:
         # Le dice a pydantic dónde encontrar el archivo .env
         env_file = ".env"
